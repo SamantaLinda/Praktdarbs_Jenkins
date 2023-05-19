@@ -71,10 +71,10 @@ def deps(){
     echo "Installing all required dependencies"
     bat "npm install"
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
-    bat "npm install -g pm2"
-    bat "dir"
-    bat "pip install -r requirements.txt"
-    bat "npm test"
+    //bat "npm install -g pm2"
+    //bat "dir"
+   // bat "pip install -r requirements.txt"
+    //bat "npm test"
 }
 
 // def deploy(String environment, int port){ 
