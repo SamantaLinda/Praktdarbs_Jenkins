@@ -17,20 +17,20 @@ pipeline {
                 }
             }
         }
-        // stage('Deploy to DEV') {
-        //     steps {
-        //         script{
-        //             deploy("DEV", 7001)
-        //         }
-        //     }
-        // }
-        // stage('Tests on DEV') {
-        //     steps {
-        //         script{
-        //             test( "DEV")
-        //         }
-        //     }
-        // }
+        stage('Deploy to DEV') {
+            steps {
+                script{
+                    deploy("DEV", 7001)
+                }
+            }
+        }
+        stage('Tests on DEV') {
+            steps {
+                script{
+                    test( "DEV")
+                }
+            }
+        }
         // stage('Deploy to STG') {
         //     steps {
         //         script{
@@ -89,5 +89,5 @@ def deps(){
 //     echo "Testing to ${environment} has started.." //"Testing test set on ${environment} has started.." //"Testing ${test_set} test set on ${environment} has started.."
 //     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
 //     bat "npm install"
-//     bat "npm run greetings greetings_{environment}"
+//     bat "npm run ${test_set} ${test_set}_{environment}"
 // }
