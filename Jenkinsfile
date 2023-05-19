@@ -11,13 +11,13 @@ pipeline {
                 }
             }
         }
-    //     stage('Install pip deps') {
-    //         steps {
-    //             script{
-    //                 deps()
-    //             }
-    //         }
-    //     }
+        stage('Install pip deps') {
+            steps {
+                script{
+                    deps()
+                }
+            }
+        }
     //     stage('Deploy to DEV') {
     //         steps {
     //             script{
@@ -70,12 +70,12 @@ def build(){
     echo "Building of node application is starting.."
 }
 
-// def deps(){
-//     echo "Installing all required dependencies"
-//     bat "npm install"
-//     bat "npm install -g pm2"
-//     bat "npm test"
-// }
+def deps(){
+    echo "Installing all required dependencies"
+    bat "npm install"
+    bat "npm install -g pm2"
+    bat "npm test"
+}
 
 // def deploy(String environment, int port){
 //     echo "Deployment to ${environment} has started.."
