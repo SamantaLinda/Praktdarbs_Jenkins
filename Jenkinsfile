@@ -85,7 +85,7 @@ def deploy(String environment, int port){
 }
 
 def test(String test_set, String environment){ 
-    echo "Testing to ${environment} has started.." //"Testing test set on ${environment} has started.." //"Testing ${test_set} test set on ${environment} has started.."
+    echo "Testing ${test_set} test set on ${environment} has started.." 
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
-    bat "npm run ${test_set} ${test_set}_{environment}"
+    bat "npm run ${test_set} ${test_set}_${environment}"
 }
