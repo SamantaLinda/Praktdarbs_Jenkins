@@ -67,6 +67,7 @@ pipeline {
 
 def build(){
     echo "Building of node application is starting.."
+    bat "npm install"
 }
 
 def deps(){
@@ -81,7 +82,7 @@ def deps(){
 
 def deploy(String environment){ //def deploy(String environment, int port){ 
     echo "Deployment to ${environment} has started.."
-    bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2.cmd delete \"Jenkins-${environment}\""
+    bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2.cmd delete \"Jenkins-${environment}\" & EXIT /B 0"
     bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2.cmd start -n \"Jenkins-${environment}\" index.js" //"pm2 start -n \"Jenkins-${environment}\" index.js -- ${port}"
 }
 
