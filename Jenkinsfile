@@ -17,20 +17,20 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to DEV') {
-            steps {
-                script{
-                    deploy("DEV", 7001)
-                }
-            }
-        }
-        stage('Tests on DEV') {
-            steps {
-                script{
-                    test( "DEV")
-                }
-            }
-        }
+        // stage('Deploy to DEV') {
+        //     steps {
+        //         script{
+        //             deploy("DEV", 7001)
+        //         }
+        //     }
+        // }
+        // stage('Tests on DEV') {
+        //     steps {
+        //         script{
+        //             test( "DEV")
+        //         }
+        //     }
+        // }
         // stage('Deploy to STG') {
         //     steps {
         //         script{
@@ -77,17 +77,17 @@ def deps(){
     bat "npm test"
 }
 
-def deploy(String environment, int port){ 
-    echo "Deployment to ${environment} has started.."
-    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
-    bat "npm install"
-    bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2 delete \"greetings-app-${environment}\" & EXIT /B 0"
-    bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2 start app.py --name \"greetings-app-${environment}\" -- ${port}"
-}
+// def deploy(String environment, int port){ 
+//     echo "Deployment to ${environment} has started.."
+//     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
+//     bat "npm install"
+//     bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2 delete \"greetings-app-${environment}\" & EXIT /B 0"
+//     bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2 start app.py --name \"greetings-app-${environment}\" -- ${port}"
+// }
 
-def test(String test_set, String environment){ 
-    echo "Testing to ${environment} has started.." //"Testing test set on ${environment} has started.." //"Testing ${test_set} test set on ${environment} has started.."
-    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
-    bat "npm install"
-    bat "npm run greetings greetings_{environment}"
-}
+// def test(String test_set, String environment){ 
+//     echo "Testing to ${environment} has started.." //"Testing test set on ${environment} has started.." //"Testing ${test_set} test set on ${environment} has started.."
+//     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
+//     bat "npm install"
+//     bat "npm run greetings greetings_{environment}"
+// }
