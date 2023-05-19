@@ -74,8 +74,8 @@ def deps(){
     bat "npm install -g pm2"
     bat "dir"
     bat "pip3 install -r requirements.txt"
-    //bat "npm install -g mocha --save-dev"
-    //bat "npm test"
+    bat "npm install -g mocha --save-dev"
+    bat "npm test"
 }
 
 def deploy(String environment, int port){ 
