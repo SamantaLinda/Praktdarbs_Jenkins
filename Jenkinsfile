@@ -82,7 +82,7 @@ def deps(){
 def deploy(String environment){ //def deploy(String environment, int port){ 
     echo "Deployment to ${environment} has started.."
     bat "pm2 delete \"Jenkins-${environment}\""
-    bat "pm2 start -n \"Jenkins-${environment}\" index.js -- ${port}"
+    bat "pm2 start -n \"Jenkins-${environment}\" index.js" //"pm2 start -n \"Jenkins-${environment}\" index.js -- ${port}"
 }
 
 def test(String environment){ //def test(String test_set, String environment){
