@@ -74,7 +74,6 @@ def deps(){
     bat "npm install -g pm2"
     bat "dir"
     bat "pip3 install -r requirements.txt"
-    bat "npm install mocha -g"
     //bat "npm test"
 }
 
@@ -88,5 +87,6 @@ def deploy(String environment, int port){
 def test(String test_set, String environment){ 
     echo "Testing ${test_set} test set on ${environment} has started.." 
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
+    bat "npm install mocha -g"
     bat "npm run ${test_set} ${test_set}_${environment}"
 }
