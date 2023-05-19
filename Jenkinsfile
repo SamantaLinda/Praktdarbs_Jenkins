@@ -82,7 +82,7 @@ def deploy(String environment){ //def deploy(String environment, int port){
     //bat "pm2 start -n \"Jenkins-${environment}\" index.js -- ${port}"
 }
 
-def test(String test_set, String environment){
+def test(String environment){ //def test(String test_set, String environment){
     echo "Testing test set on ${environment} has started.." //"Testing ${test_set} test set on ${environment} has started.."
     //bat "npm run ${test_set} ${test_set}_${environment}"
 }
