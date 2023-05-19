@@ -31,20 +31,20 @@ pipeline {
                 }
             }
         }
-        // stage('Deploy to STG') {
-        //     steps {
-        //         script{
-        //             deploy("STG") //, 2020)
-        //         }
-        //     }
-        // }
-        // stage('Tests on STG') {
-        //     steps {
-        //         script{
-        //             test("STG")
-        //         }
-        //     }
-        // }
+        stage('Deploy to STG') {
+            steps {
+                script{
+                    deploy("STG") //, 2020)
+                }
+            }
+        }
+        stage('Tests on STG') {
+            steps {
+                script{
+                    test("STG")
+                }
+            }
+        }
         // stage('Deploy to PRD') {
         //     steps {
         //         script{
