@@ -73,7 +73,7 @@ def deps(){
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "npm install -g pm2"
     bat "dir"
-    bat "install -r requirements.txt"
+    bat "pip3 install -r requirements.txt"
     //bat "npm test"
 }
 
