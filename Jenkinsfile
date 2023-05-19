@@ -72,7 +72,7 @@ def build(){
 def deps(){
     echo "Installing all required dependencies"
     bat "npm install"
-    bat "npm install -g pm2"
+    bat "npm install pm2 -g -s"
     //git branch: 'main', poll: false, url:
     bat "dir"
     //bat " pip install -r requirements.txt"
