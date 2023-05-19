@@ -17,20 +17,20 @@ pipeline {
                 }
             }
         }
-        // stage('Deploy to DEV') {
-        //     steps {
-        //         script{
-        //             deploy("DEV") //, 1010)
-        //         }
-        //     }
-        // }
-        // stage('Tests on DEV') {
-        //     steps {
-        //         script{
-        //             test( "DEV")
-        //         }
-        //     }
-        // }
+        stage('Deploy to DEV') {
+            steps {
+                script{
+                    deploy("DEV") //, 1010)
+                }
+            }
+        }
+        stage('Tests on DEV') {
+            steps {
+                script{
+                    test( "DEV")
+                }
+            }
+        }
         stage('Deploy to STG') {
             steps {
                 script{
