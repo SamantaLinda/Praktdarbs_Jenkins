@@ -17,20 +17,20 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to DEV') {
-            steps {
-                script{
-                    deploy("DEV") //, 1010)
-                }
-            }
-        }
-        stage('Tests on DEV') {
-            steps {
-                script{
-                    test( "DEV")
-                }
-            }
-        }
+        // stage('Deploy to DEV') {
+        //     steps {
+        //         script{
+        //             deploy("DEV") //, 1010)
+        //         }
+        //     }
+        // }
+        // stage('Tests on DEV') {
+        //     steps {
+        //         script{
+        //             test( "DEV")
+        //         }
+        //     }
+        // }
         stage('Deploy to STG') {
             steps {
                 script{
@@ -61,9 +61,6 @@ pipeline {
         // }
     }
 }
-
-// for windows: bat "npm.."
-// for linux/macos: sh "npm .."
 
 def build(){
     echo "Building of node application is starting.."
