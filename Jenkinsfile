@@ -75,6 +75,7 @@ def deps(){
     bat "npm install pm2 -g -s"
     //git branch: 'main', poll: false, url:
     bat "dir"
+    bat "pm2 list"
     //bat " pip install -r requirements.txt"
     //bat "npm test"
 }
