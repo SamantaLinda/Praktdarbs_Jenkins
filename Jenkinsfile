@@ -73,16 +73,19 @@ def deps(){
     echo "Installing all required dependencies"
     bat "npm install"
     bat "npm install -g pm2"
+    //git branch: 'main', poll: false, url:
+    bat "dir"
+    bat " pip install -r requirements.txt"
     //bat "npm test"
 }
 
 def deploy(String environment){ //def deploy(String environment, int port){ 
     echo "Deployment to ${environment} has started.."
-    //bat "pm2 delete \"Jenkins-${environment}\""
-    //bat "pm2 start -n \"Jenkins-${environment}\" index.js -- ${port}"
+    bat "pm2 delete \"Jenkins-${environment}\""
+    bat "pm2 start -n \"Jenkins-${environment}\" index.js -- ${port}"
 }
 
 def test(String environment){ //def test(String test_set, String environment){
-    echo "Testing test set on ${environment} has started.." //"Testing ${test_set} test set on ${environment} has started.."
+    echo "Testing to ${environment} has started.." //"Testing test set on ${environment} has started.." //"Testing ${test_set} test set on ${environment} has started.."
     //bat "npm run ${test_set} ${test_set}_${environment}"
 }
