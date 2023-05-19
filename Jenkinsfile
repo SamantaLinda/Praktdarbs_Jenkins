@@ -69,7 +69,7 @@ def build(){
 
 def deps(){
     echo "Installing all required dependencies"
-    git branch: 'main', poll: false, url: https://github.com/mtararujs/python-greetings.git
+    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "npm install"
     bat "npm install -g pm2"
     bat "dir"
@@ -79,7 +79,7 @@ def deps(){
 
 def deploy(String environment, int port){ 
     echo "Deployment to ${environment} has started.."
-    git branch: 'main', poll: false, url: https://github.com/mtararujs/python-greetings.git
+    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "npm install"
     bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2 delete \"greetings-app-${environment}\" & EXIT /B 0"
     bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2 start app.py --name \"greetings-app-${environment}\" -- ${port}"
@@ -87,7 +87,7 @@ def deploy(String environment, int port){
 
 def test(String test_set, String environment){ 
     echo "Testing to ${environment} has started.." //"Testing test set on ${environment} has started.." //"Testing ${test_set} test set on ${environment} has started.."
-    git branch: 'main', poll: false, url: https://github.com/mtararujs/course-js-api-framework.git
+    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
     bat "npm install"
     bat "npm run greetings greetings_{environment}"
 }
