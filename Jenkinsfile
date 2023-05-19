@@ -31,34 +31,34 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to STG') {
-            steps {
-                script{
-                    deploy("STG") //, 2020)
-                }
-            }
-        }
-        stage('Tests on STG') {
-            steps {
-                script{
-                    test("STG")
-                }
-            }
-        }
-        stage('Deploy to PRD') {
-            steps {
-                script{
-                    deploy("PRD") //, 3030)
-                }
-            }
-        }
-        stage('Tests on PRD') {
-            steps {
-                script{
-                    test("PRD")
-                }
-            }
-        }
+        // stage('Deploy to STG') {
+        //     steps {
+        //         script{
+        //             deploy("STG") //, 2020)
+        //         }
+        //     }
+        // }
+        // stage('Tests on STG') {
+        //     steps {
+        //         script{
+        //             test("STG")
+        //         }
+        //     }
+        // }
+        // stage('Deploy to PRD') {
+        //     steps {
+        //         script{
+        //             deploy("PRD") //, 3030)
+        //         }
+        //     }
+        // }
+        // stage('Tests on PRD') {
+        //     steps {
+        //         script{
+        //             test("PRD")
+        //         }
+        //     }
+        // }
     }
 }
 
@@ -82,11 +82,13 @@ def deps(){
 
 def deploy(String environment){ //def deploy(String environment, int port){ 
     echo "Deployment to ${environment} has started.."
+    bat "npm install"
     bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2 delete \"Jenkins-${environment}\" & EXIT /B 0"
     bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2 start -n \"Jenkins-${environment}\" index.js" //"pm2 start -n \"Jenkins-${environment}\" index.js -- ${port}"
 }
 
 def test(String environment){ //def test(String test_set, String environment){
     echo "Testing to ${environment} has started.." //"Testing test set on ${environment} has started.." //"Testing ${test_set} test set on ${environment} has started.."
+     bat "npm install"
     //bat "npm run ${test_set} ${test_set}_${environment}"
 }
