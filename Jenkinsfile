@@ -45,20 +45,20 @@ pipeline {
                 }
             }
         }
-        // stage('Deploy to PRD') {
-        //     steps {
-        //         script{
-        //             deploy("PRD") //, 3030)
-        //         }
-        //     }
-        // }
-        // stage('Tests on PRD') {
-        //     steps {
-        //         script{
-        //             test("PRD")
-        //         }
-        //     }
-        // }
+        stage('Deploy to PRD') {
+            steps {
+                script{
+                    deploy("PRD") //, 3030)
+                }
+            }
+        }
+        stage('Tests on PRD') {
+            steps {
+                script{
+                    test("PRD")
+                }
+            }
+        }
     }
 }
 
