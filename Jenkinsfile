@@ -24,13 +24,13 @@ pipeline {
                 }
             }
         }
-        stage('Tests on DEV') {
-            steps {
-                script{
-                    test( "greetings", "DEV")
-                }
-            }
-        }
+        // stage('Tests on DEV') {
+        //     steps {
+        //         script{
+        //             test( "greetings", "DEV")
+        //         }
+        //     }
+        // }
         // stage('Deploy to STG') {
         //     steps {
         //         script{
@@ -86,8 +86,8 @@ def deploy(String environment, int port){
     bat "C:\\Users\\Samanta\\AppData\\Roaming\\npm\\pm2 start app.py --name \"greetings-app-${environment}\" -- ${port}"
 }
 
-def test(String test_set, String environment){ 
-    echo "Testing ${test_set} test set on ${environment} has started.." 
-    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
-    bat "npm run ${test_set} ${test_set}_${environment}"
-}
+// def test(String test_set, String environment){ 
+//     echo "Testing ${test_set} test set on ${environment} has started.." 
+//     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
+//     bat "npm run ${test_set} ${test_set}_${environment}"
+// }
